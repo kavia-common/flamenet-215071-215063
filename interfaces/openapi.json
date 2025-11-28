@@ -1,0 +1,72 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FlameNet API",
+    "description": "REST API for the FlameNet platform providing core backend services, health checks, and metadata.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Health Check",
+        "description": "Returns a simple status payload indicating the FlameNet backend is running.",
+        "operationId": "health_check__get",
+        "responses": {
+          "200": {
+            "description": "Application is healthy.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Health Check  Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/meta": {
+      "get": {
+        "tags": [
+          "Meta"
+        ],
+        "summary": "FlameNet Metadata",
+        "description": "Returns basic metadata about the FlameNet backend including name, version, and a simple service status indicator.",
+        "operationId": "flamenet_meta_get",
+        "responses": {
+          "200": {
+            "description": "Metadata returned successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Flamenet Meta Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Health",
+      "description": "System health and readiness checks for the FlameNet backend."
+    },
+    {
+      "name": "Meta",
+      "description": "Metadata and version information for the FlameNet platform."
+    }
+  ]
+}
